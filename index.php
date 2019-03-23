@@ -14,7 +14,10 @@ use app\Router;
 
 try {
     $render = (new Router($_GET))->getController();
-    $container = $render->getAction()['view'];
+    $content = file_get_contents(
+        '.'.DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, ['src', 'views', $render->getAction()['view']]) . '.php',
+        true
+    );
     extract($render->getAction()['params'], EXTR_OVERWRITE);
     require_once __DIR__ . DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, ['src', 'views', $render->layout]) . '.php';
 } catch (Exception $e) {

@@ -6,7 +6,7 @@
                     <div class="tm-img-gallery gallery-one">
                         <!-- Gallery One pop up connected with JS code below -->
                         <div class="tm-img-gallery-info-container">
-                            <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Multi Color Image Gallery</span></h2>
+                            <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Authors</span></h2>
                             <p class="tm-text">This responsive HTML template includes three gallery pages. Multi color is designed by Tooplate. You may use this layout for your website.
                             </p>
                         </div>

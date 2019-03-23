@@ -9,6 +9,11 @@ class BookController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('índex', ['p' => 'params']);
+        return $this->render('index', ['p' => 'params']);
+    }
+
+    public function createAction()
+    {
+        var_dump('create');die;
     }
 }

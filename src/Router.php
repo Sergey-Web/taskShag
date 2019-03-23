@@ -2,8 +2,9 @@
 
 namespace app;
 
-use app\controllers\Controller;
 use app\controllers\BookController;
+use app\controllers\AuthorController;
+use app\controllers\PublisherController;
 use Exception;
 
 class Router implements IRouter {
@@ -14,12 +15,9 @@ class Router implements IRouter {
 
     private $accessPages = [
         'book' => BookController::class,
-//        'authors' => AuthorController::class,
-//        'author' => AuthorController::class,
-//        'publishers' => PublisherController::class,
-//        'publisher' => PublisherController::class,
-//        'rubrics' => RubricController::class,
-//        'rubric' => AuthorController::class
+        'author' => AuthorController::class,
+        'publisher' => PublisherController::class,
+        'rubric' => RubricController::class
     ];
 
     public function __construct(array $page)
@@ -45,13 +43,14 @@ class Router implements IRouter {
      */
     private function mapper($page)
     {
-        if (empty($page['route'])) {
+        if (empty($page['route']) || $page['route'] === 'book') {
             $this->page = 'book';
             $this->params = ['index'];
             return;
         }
         $request = explode('/', trim($page['route'], '/'));
+        $this->page = $request[0];
         array_shift($request);
-        $this->params = $request;
+        $this->params = !empty($request) ? $request : ['index'];
     }
 }
